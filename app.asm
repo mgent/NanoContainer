@@ -3,10 +3,13 @@
 section .data
   hello: db "Hello World!", 10
   helloLen: equ $-hello
-  
+  timespec:
+    tv_sec  dq 1
+    tv_usec dq 0
+
 section .text
   global _start
-  
+
   _start:
     ; print "Hello World!"
     mov rax, 1          ; sys_write
@@ -14,9 +17,18 @@ section .text
     mov rsi, hello
     mov rdx, helloLen
     syscall
-    
-    ; exit
-    mov rax, 60         ; sys_exit
-    mov rdi, 0          ; error code 0 (success)
+
+    ; sleep for 1 second
+    mov rax, 35         ; sys_nanosleep
+    mov rdi, timespec
+    xor rsi, rsi
     syscall
-    
+
+    ; loop forever
+    jmp _start
+
+    ; exit
+    ; mov rax, 60         ; sys_exit
+    ; mov rdi, 0          ; error code 0 (success)
+    ; syscall
+
