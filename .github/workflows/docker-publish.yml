@@ -35,8 +35,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install nasm
-        uses: ilammy/setup-nasm@v1
+      - name: Install nasm and binutils
+        run: sudo apt install -y nasm binutils
+        shell: bash
 
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
