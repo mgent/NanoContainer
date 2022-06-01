@@ -4,6 +4,7 @@ Example of near-smallest-size container, using assembler, to show how small cont
 It just prints "Hello World" to stdout every second so it stays running and demonstrates container output.  
 The very smallest size binary (which *might* yield a slightly smaller container) would just exit immediately, but that is not useful for demonstration purposes.
 
+## Checking the container content size
 You can check the size and contents of the container in two ways in a directory of choice:
 1. Inspecting the image by executing these commands, and then browsing the resulting files, specifically the container 'layer.tar' file:
    ```bash
@@ -20,3 +21,7 @@ You can check the size and contents of the container in two ways in a directory 
    tar xf minimal-container.tar
    ```
    You will see that there is only 1 binary, which is the above 'Hello World' app, as well as a a couple of directories and files that Docker clearly always adds, but all those files are empty.
+
+## Editing and running this project
+You can edit and run this project in the awesome GitPod by going to this URL:
+https://gitpod.io/#https://github.com/mgent/minimal-container
