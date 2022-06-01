@@ -1,0 +1,3 @@
+tasks:
+  - name: Install tooling
+    init: sudo apt install nasm -y
